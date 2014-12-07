@@ -1,9 +1,12 @@
 package de.doccrazy.ld31.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Scaling;
+
 import de.doccrazy.ld31.data.GameRules;
 import de.doccrazy.shared.game.BaseGameRenderer;
 import de.doccrazy.shared.game.world.Box2dWorld;
@@ -23,12 +26,14 @@ public class GameRenderer extends BaseGameRenderer {
 
     @Override
     protected void init() {
-        world.rayHandler.setAmbientLight(new Color(0.05f, 0.1f, 0.05f, 0.15f));
+        world.rayHandler.setAmbientLight(new Color(0.05f, 0.1f, 0.05f, 0.65f));
         //DirectionalLight sun = new DirectionalLight(world.rayHandler, 1000, new Color(1.0f, 1.0f, 0.5f, 0.6f), -60);
         //Light.setContactFilter(Category.DEFAULT, (short) 0, Category.LEVEL);
     }
 
     protected void drawBackground(SpriteBatch batch) {
+		Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         //Vector2 bgSize = bgScaling.apply(gameViewport.x, gameViewport.y, world.stage.getWidth(), world.stage.getHeight());
         //batch.draw(Resource.GFX.backgroundHigh, world.stage.getWidth() / 2 - bgSize.x / 2, 0, bgSize.x, bgSize.y);
         //batch.draw(Resource.GFX.backgroundLow, world.stage.getWidth() / 2 - bgSize.x / 2, -bgSize.y, bgSize.x, bgSize.y);
