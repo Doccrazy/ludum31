@@ -4,7 +4,8 @@ public enum GamepadActions {
 	PUNCH("Punch"),
 	STRONG_PUNCH("Strong punch"),
 	CHARGED_SHOT("Charged shot"),
-	JUMP("Jump");
+	JUMP("Jump"),
+	BLOCK("Block");
 
 	private String name;
 

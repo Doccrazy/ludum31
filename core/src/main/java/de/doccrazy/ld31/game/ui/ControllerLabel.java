@@ -28,6 +28,7 @@ public class ControllerLabel extends Label {
 			setText("Press any controller button to start P2 setup");
 			setVisible(t % 1f < 0.5f);
 		} else if (root.getPadInput().isInit() && !root.getPadInput().isConfigured()) {
+			setVisible(true);
 			setText("Press button for action '" + root.getPadInput().getNextAction() + "'");
 			t = -999;
 		} else if (root.getPadInput().isConfigured() && t < 1.5f) {

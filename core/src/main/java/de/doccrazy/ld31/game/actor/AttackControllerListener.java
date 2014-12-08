@@ -33,6 +33,10 @@ public class AttackControllerListener extends ControllerAdapter {
     		listener.startAttack(AttackType.SHOOT_HOLD);
     		return true;
     	}
+    	if (GamepadActions.BLOCK == action) {
+    		listener.startBlock();
+    		return true;
+    	}
     	return false;
 	}
 
@@ -49,6 +53,10 @@ public class AttackControllerListener extends ControllerAdapter {
     	}
     	if (GamepadActions.CHARGED_SHOT == action) {
     		listener.stopAttack(AttackType.SHOOT_HOLD);
+    		return true;
+    	}
+    	if (GamepadActions.BLOCK == action) {
+    		listener.stopBlock();
     		return true;
     	}
     	return false;

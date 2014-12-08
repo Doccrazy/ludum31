@@ -30,6 +30,8 @@ public class GameWorld extends Box2dWorld {
 	private int round;
 	private Map<Integer, GamepadActions> actionMap;
 	private boolean partInit;
+	private GamepadMovementListener moveListener;
+	private AttackControllerListener attackListener;
 
 	public GameWorld() {
         super(GameRules.GRAVITY);
@@ -82,6 +84,7 @@ public class GameWorld extends Box2dWorld {
             	Resource.MUSIC.victory.play();
             	players[0].setupController(null);
             	if (multiplayer) {
+            		deactivateController();
             		players[1].setupController(null);
             	}
         }
@@ -123,11 +126,16 @@ public class GameWorld extends Box2dWorld {
 				jumpAction = entry.getKey();
 			}
 		}
-		GamepadMovementListener moveListener = new GamepadMovementListener(jumpAction);
+		moveListener = new GamepadMovementListener(jumpAction);
 		Controllers.addListener(moveListener);
-		AttackControllerListener attackListener = new AttackControllerListener(actionMap, player);
+		attackListener = new AttackControllerListener(actionMap, player);
 		Controllers.addListener(attackListener);
 		player.setupController(moveListener);
+    }
+
+    public void deactivateController() {
+    	Controllers.removeListener(moveListener);
+    	Controllers.removeListener(attackListener);
     }
 
     public PlayerActor getPlayer(int index) {
