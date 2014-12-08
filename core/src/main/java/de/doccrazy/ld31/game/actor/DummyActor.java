@@ -8,8 +8,10 @@ import com.badlogic.gdx.physics.box2d.joints.DistanceJointDef;
 import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 
 import de.doccrazy.ld31.core.Resource;
+import de.doccrazy.ld31.data.AttackType;
 import de.doccrazy.ld31.data.CollCategory;
 import de.doccrazy.shared.game.actor.ShapeActor;
+import de.doccrazy.shared.game.actor.WorldActor;
 import de.doccrazy.shared.game.world.BodyBuilder;
 import de.doccrazy.shared.game.world.Box2dWorld;
 import de.doccrazy.shared.game.world.ShapeBuilder;
@@ -57,7 +59,7 @@ public class DummyActor extends ShapeActor implements HitListener {
 	}
 
 	@Override
-	public void onHit(Vector2 force, Vector2 contactPoint) {
+	public void onHit(WorldActor cause, AttackType type, Vector2 force, Vector2 contactPoint) {
 		body.applyLinearImpulse(force, contactPoint, true);
 		System.out.println("Damage " + force.len());
 	}

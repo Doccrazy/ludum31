@@ -4,6 +4,8 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
+import de.doccrazy.ld31.data.AttackType;
+
 public class AttackInputListener extends InputListener {
 	private Consumer listener;
 
@@ -25,6 +27,10 @@ public class AttackInputListener extends InputListener {
     		listener.startAttack(AttackType.SHOOT_HOLD);
     		return true;
     	}
+    	if (Keys.SHIFT_LEFT == keycode) {
+    		listener.startBlock();
+    		return true;
+    	}
     	return false;
     }
 
@@ -42,6 +48,10 @@ public class AttackInputListener extends InputListener {
     		listener.stopAttack(AttackType.SHOOT_HOLD);
     		return true;
     	}
+    	if (Keys.SHIFT_LEFT == keycode) {
+    		listener.stopBlock();
+    		return true;
+    	}
     	return false;
     }
 
@@ -49,5 +59,9 @@ public class AttackInputListener extends InputListener {
     	void startAttack(AttackType type);
 
     	void stopAttack(AttackType type);
+
+    	void startBlock();
+
+    	void stopBlock();
     }
 }

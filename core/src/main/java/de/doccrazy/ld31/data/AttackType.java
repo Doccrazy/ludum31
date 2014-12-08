@@ -1,4 +1,4 @@
-package de.doccrazy.ld31.game.actor;
+package de.doccrazy.ld31.data;
 
 public enum AttackType {
 	PUNCH(100f),
