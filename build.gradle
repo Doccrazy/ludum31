@@ -9,8 +9,8 @@ allprojects {
     version = '1.0'
     ext {
         appName = 'ludum31'
-        gdxVersion = '1.4.1'
-        roboVMVersion = '1.0.0-alpha-04'
+        gdxVersion = '1.5.5'
+        roboVMVersion = '1.0.0'
     }
 
     configurations.all {
