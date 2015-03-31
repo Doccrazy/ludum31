@@ -1,4 +1,4 @@
-apply from: project(':ludum-shared').file('packTextures.gradle')
+apply from: file('../packTextures.gradle')
 
 project.ext.mainClassName = "de.doccrazy.ld31.desktop.DesktopLauncher"
 project.ext.assetsDir = file("../core/assets");

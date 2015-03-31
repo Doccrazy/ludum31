@@ -1,1 +1,1 @@
-include 'desktop', 'core', 'ludum-shared'
+include 'desktop', 'core'
